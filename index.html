@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Likhith S - Portfolio</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#dr{
+    text-align: center;
+    margin-left: 180px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientBg 15s ease infinite;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+@keyframes gradientBg {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+  
+
+/* Layout for navigation */
+.nav {
+  position: fixed;
+  top: 08%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  z-index: 999;
+}
+.nav a {
+  background: rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.nav a:hover {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: #fff;
+}
+.nav a i {
+  margin-right: 8px;
+}
+
+/* Common section styles */
+section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+  position: relative;
+}
+p {
+  max-width: 700px;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+button {
+  padding: 12px 25px;
+  font-size: 1em;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Home Section */
+#home {
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  position: relative;
+  overflow: hidden;
+}
+#home .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#home .text {
+  max-width: 600px;
+  padding: 20px;
+}
+#home h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+#home h1 span {
+  color: #ffd700;
+}
+#home .tagline {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+#home .profile-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+#home .buttons {
+  margin-top: 20px;
+}
+#home .buttons a {
+  margin-right: 15px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+#home .buttons a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.fullscreen {
+  width: 100%;     /* full width */
+}
+
+/* About & Education */
+#about {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  max-width: 1600px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#about h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+#about .bio {
+  font-size: 1.2em;
+  text-align: center;
+}
+#about .education {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.education-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.education-item:hover {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+}
+.education-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Skills & Competencies */
+#skills {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 40px 20px;
+  max-width: 1600px;
+}
+#skills h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.skills-category {
+  margin-bottom: 40px;
+}
+.skills-category h3 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #ffd700;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.skill {
+  background: rgba(255,255,255,0.1);
+  padding: 15px 20px;
+  border-radius: 15px;
+  width: 150px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.skill:hover {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  transform: scale(1.05);
+}
+.skill i {
+  font-size: 2em;
+  margin-bottom: 10px;
+  display: block;
+}
+.skill span {
+  display: block;
+  margin-top: 5px;
+}
+
+/* Projects */
+#projects {
+  background: rgba(0,0,0,0.4);
+  border-radius: 15px;
+  padding: 40px 20px;
+  max-width: 1600px;
+}
+#projects h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 80px;
+}
+.project-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.project-content {
+  padding: 15px;
+}
+.project-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.project-desc {
+  font-size: 1em;
+}
+.project-tech {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+.project-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+.project-buttons a {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.project-buttons a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Certificates & Achievements */
+#certificates {
+  background: rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 40px 20px;
+  max-width: 1600px;
+  flex-direction: column;
+}
+#certificates h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  
+}
+.cert-item {
+  background: rgba(217, 210, 210, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.cert-item:hover {
+  background: linear-gradient(45deg, #dfee0f, #1207e9);
+}
+.cert-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+#contact {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 40px 20px;
+  max-width: 1600px;
+}
+#contact h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.contact-info a {
+  color: #fff;
+  font-size: 2em;
+  transition: all 0.3s ease;
+}
+.contact-info a:hover {
+  color: #ffd700;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+input[type="text"], input[type="email"], textarea {
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1em;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  background: rgba(255,255,255,0.2);
+}
+button.send {
+  align-self: center;
+  padding: 12px 30px;
+  font-size: 1em;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button.send:hover {
+  transform: scale(1.05);
+}
+
+/* Footer / Social Media */
+#footer {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+#footer a {
+  color: #fff;
+  font-size: 1.8em;
+  transition: all 0.3s ease;
+}
+#footer a:hover {
+  color: #ffd700;
+}
+
+/* Additional styles for animations */
+@media(max-width:768px){
+  #home .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation (Right side horizontal) -->
+<div class="nav">
+  <a href="#home"><i class="fas fa-home"></i> Home</a>
+  <a href="#about"><i class="fas fa-user"></i> About</a>
+  <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
+  <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+  <a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+
+<!-- Home Section -->
+<section id="home">
+  <div class="hero">
+    <div class="text">
+      <h1>Likhith <span>S</span></h1>
+      <p class="tagline">Web Developer | UI/UX Designer | Data Enthusiast</p>
+      <a href="Resume.pdf" download style="padding:15px 30px; border-radius:30px; background:#fff; color:#000; font-weight:bold;" id="dr">Download Resume</a>
+    </div>
+    <img src="image.jpg" alt="Passport Image" class="profile-img" />
+  </div>
+</section>
+
+<!-- About & Education -->
+<section id="about">
+  <h2>About </h2>
+  <div class="bio">
+    <p>Hello! I am a motivated and curious individual who believes in continuous learning and self-growth. I strive to improve my skills every day and embrace challenges as opportunities to become stronger and more capable. With a positive mindset and a willingness to adapt, I focus on building both knowledge and character. I value creativity, consistency, and hard work in everything I do. My goal is not just to achieve success, but to grow through the journey and make meaningful contributions. I am passionate about exploring new ideas, developing my potential, and creating a future that reflects dedication, purpose, and perseverance..</p>
+  </div>
+  <h2> Education</h2>
+  <div class="education">
+    <div class="education-item">
+      <div class="education-title">SSLC </div>
+      <div>Schooling at Morarji desai esidential school Bychapura </div>
+    </div> <div class="education-item">
+      <div class="education-title">PUC</div>
+      <div>upgrade morarji desai residential science college Bychapura</div>
+    </div>
+    <div class="education-item">
+      <div class="education-title">BCA</div>
+      <div>Seshadripuram College, Tumakuru</div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills & Competencies -->
+<section id="skills">
+  <h2>Skills & Competencies</h2>
+  <div class="skills-category">
+    <h3>Web Development</h3>
+    <div class="skills-list">
+      <div class="skill"><i class="fab fa-html5"></i>HTML</div>
+      <div class="skill"><i class="fab fa-css3-alt"></i>CSS</div>
+      <div class="skill"><i class="fab fa-js"></i>JavaScript</div>
+      <div class="skill"><i class="fab fa-react"></i>React</div>
+      <div class="skill"><i class="fab fa-angular"></i>Angular</div>
+      <div class="skill"><i class="fab fa-python"></i>python</div>
+    </div>
+  </div>
+  <div class="skills-category">
+    <h3>Design</h3>
+    <div class="skills-list">
+      <div class="skill"><i class="fas fa-pencil-ruler"></i>UI/UX</div>
+      <div class="skill"><i class="fab fa-adobe"></i>Adobe XD</div>
+      <div class="skill"><i class="fab fa-figma"></i>Figma</div>
+      <div class="skill"><i class="fas fa-pencil-alt"></i>Photoshop</div>
+    </div>
+  </div>
+  <div class="skills-category">
+    <h3>Analytics</h3>
+    <div class="skills-list">
+      <div class="skill"><i class="fas fa-chart-line"></i>Data Viz</div>
+      <div class="skill"><i class="fas fa-database"></i>SQL</div>
+      <div class="skill"><i class="fas fa-chart-pie"></i>Power BI</div>
+    </div>
+  </div>
+  <div class="skills-category">
+    <h3>Marketing</h3>
+    <div class="skills-list">
+      <div class="skill"><i class="fas fa-search"></i>SEO</div>
+      <div class="skill"><i class="fas fa-bullhorn"></i>SEM</div>
+      <div class="skill"><i class="fas fa-hashtag"></i>Social Media</div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+    <div class="project-grid">
+    <div class="project-card">
+      <img src="breakdown.jpg" class="project-img" />
+      <div class="project-content">
+        <div class="project-title">Vehicle Assistance Breakdown System</div>
+        <div class="project-desc">A comprehensive system for vehicle assistance management with real-time tracking and support features.</div>
+        <div class="project-tech">HTML, CSS, JavaScript</div>
+        <div class="project-buttons">
+          <a href="https://likhiths455573-collab.github.io/vehical-management-system/" target="_blank">Demo</a>
+          <a class="btn" href="https://likhiths455573-collab.github.io/vehical-management-system/">GitHub</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-grid">
+    <div class="project-card">
+      <img src="lawyer.jpg" class="project-img" />
+      <div class="project-content">
+        <div class="project-title">Advocate Booking  Management System</div>
+        <div class="project-desc">“A lawyer is a legal professional who advises, represents, and defends clients, ensuring justice and compliance with the law.”</div>
+        <div class="project-tech">HTML, CSS, JavaScript</div>
+        <div class="project-buttons">
+          <a href="https://likhiths455573-collab.github.io/advocate-booking-portal/" target="_blank">Demo</a>
+          <a class="btn" href="https://likhiths455573-collab.github.io/advocate-booking-portal/">GitHub</a>
+        </div>
+      </div>
+    </div>
+   
+    <!-- Add more project cards as needed -->
+  </div>
+</section>
+
+<!-- Certificates & Achievements -->
+<section id="certificates">
+  <h2>Certificates </h2>
+  <div class="card">
+    <img src="" alt="Certificate 1" />
+    <div class="card-content">
+      <h4>Artificial Intelligence</h4>
+      <a href="IBMDesign20251124-33-j2a137.pdf" target="_blank" class="btn">View Certificate</a>
+    </div>
+  </div>
+</div>
+   <div class="card">
+    <img src="" alt="Certificate 2" />
+    <div class="card-content">
+      <h4>R programming</h4>
+      <a href="r programing.pdf" target="_blank" class="btn">View Certificate</a>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact & Connect</h2>
+  <div class="contact-info">
+    <a href="https://github.com/yourgithub" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/likhith-s-a882203b7" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <form class="contact-form" onsubmit="return false;">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="4" placeholder="Your Message" required></textarea>
+    <button class="send">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer / Social Media -->
+<div id="footer">
+  <a href="https://github.com/likhiths455573-collab" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/likhith-s-a882203b7" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+ 
+  <p>© Likhith S. All Rights Reserved.</p>
+</div>
+
+
+<!-- Scripts -->
+<script>
+// Animate sections on scroll
+const sections = document.querySelectorAll('section');
+const options = { threshold: 0.3 };
+const observer = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+    }
+  });
+}, options);
+sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
